@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/mydb
+    username: myuser
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 3
+event:
+  scheduler:
+    fixedRate: 30000
+    publisherRate: 10000
